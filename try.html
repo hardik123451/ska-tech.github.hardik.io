@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .sliderBox {
+            overflow: hidden;
+            height: 100vh;
+
+        }
+
+        .banner1, .banner2, .banner3, .banner4 {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            overflow: hidden;
+            left: 0;
+            top: 0;
+        }
+
+        .newBannerImg {
+            width: 120%;
+            height: 100vh;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: zoom-out 3s linear infinite;
+
+
+        }
+
+        @keyframes zoom-out {
+            100%{
+                width: 100%;
+            }
+            
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            position: absolute;
+        }
+
+        .textBox {
+            width: 45%;
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            color: #fff;
+            animation: text-up 12s linear infinite;
+            transform: translateY(900px) rotateY(180deg);
+            
+        }
+
+        .textbox1{
+            animation-delay: 0s;
+        }
+        .textbox2{
+            animation-delay: 3s;
+        }
+        .textbox3{
+            animation-delay: 6s;
+        }
+        .textbox4{
+            animation-delay: 9s;
+        }
+
+        @keyframes text-up {
+            10%{
+                transform: translateY(0px) rotateY(0deg);
+                
+            }
+            100%{
+                transform: translateY(0px) rotateY(0deg) ;
+                
+            }
+            
+        }
+
+
+        .textBox h1 {
+            margin-bottom: 40px;
+        }
+
+        .textBox p {
+            font-size: 1.3em;
+            line-height: 18px;
+            margin-top: 80px;
+        }
+
+        .textBox span {
+            background: red;
+            height: 3px;
+            width: 100px;
+            position: absolute;
+
+        }
+
+        .banner1{
+            animation: slide1 12s linear infinite;
+        }
+
+        
+        .banner2{
+            animation: slide2 12s linear infinite;
+        }
+
+        
+        .banner3{
+            animation: slide3 12s linear infinite;
+        }
+
+        
+        .banner4{
+            animation: slide4 12s linear infinite;
+        }
+
+        @keyframes slide1 {
+            0%{
+                visibility: visible;
+            }
+            25%{
+                visibility: hidden;
+            }
+            50%{
+                visibility: hidden;
+            }
+            75%{
+                visibility: hidden;
+            }
+            100%{
+                visibility: visible;
+            }
+        }
+
+
+        @keyframes slide2 {
+            0%{
+                visibility: hidden;
+            }
+            25%{
+                visibility: hidden;
+            }
+            50%{
+                visibility: visible;
+            }
+            75%{
+                visibility: hidden;
+            }
+            100%{
+                visibility: hidden;
+            }
+        }
+
+
+        @keyframes slide3 {
+            0%{
+                visibility: hidden;
+            }
+            25%{
+                visibility: hidden;
+            }
+            50%{
+                visibility: hidden;
+            }
+            75%{
+                visibility: visible;
+            }
+            100%{
+                visibility: hidden;
+            }
+        }
+
+
+        @keyframes slide4 {
+            0%{
+                visibility: hidden;
+            }
+            25%{
+                visibility: hidden;
+            }
+            50%{
+                visibility: hidden;
+            }
+            75%{
+                visibility: hidden;
+            }
+            100%{
+                visibility: visible;
+            }
+        }
+        
+        #preloader{
+
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background: #262626;
+            z-index: 100;
+        }
+        #preloaderHeading{
+            margin: 0;
+            padding: 20px 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            text-transform:  uppercase;
+            font-family:  sans-serif;
+            font-size: 8vw;
+            letter-spacing: .1em;
+            background: #72c3ff;
+            color: #fff;
+            text-shadow: 5px 10px 5px rgba(0,0, 0, .7);
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        #preloaderHeading:before{
+            content:"";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(img/preloader-back2new2.png);
+            background-size: cover;
+            z-index: -1;
+            animation: animateBefore 10s linear infinite;
+            transition: .5s;
+
+
+        }
+        @keyframes animateBefore {
+            0%{
+                background-position: 0%;
+            }
+            100%{
+                background-position: 100%;
+            }
+        }
+
+        #preloaderHeading:after{
+            content:"";
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(img/preloader-frontnew2.png);
+            background-size: cover;
+            z-index: 1;
+            animation: animateafter 10s linear infinite;
+            transition: .5s;
+
+
+        }
+
+        @keyframes animateafter {
+            0%{
+                background-position: 0%;
+            }
+            100%{
+                background-position: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="preloader">
+        <h1 id="preloaderHeading">SKA Technology</h1>
+    </div>
+
+    <div class="sliderBox">
+
+        <div class="banner1">
+            <img src="img/slider4.png" alt="" class="newBannerImg">
+            <div class="overlay">
+
+                <div class="textBox textbox1">
+                    <h1>1 Silence is enough</h1>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et eligendi veniam cum fugiat vel
+                        maxime rem minus eius illum architecto.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner2">
+            <img src="img/slider3.png" alt="" class="newBannerImg">
+            <div class="overlay">
+
+                <div class="textBox textbox2">
+                    <h1>2 Silence is enough</h1>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et eligendi veniam cum fugiat vel
+                        maxime rem minus eius illum architecto.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="banner3">
+            <img src="img/slider2.png" alt="" class="newBannerImg">
+            <div class="overlay">
+
+                <div class="textBox textbox3">
+                    <h1>3 Silence is enough</h1>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et eligendi veniam cum fugiat vel
+                        maxime rem minus eius illum architecto.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="banner4">
+            <img src="img/slider1.png" alt="" class="newBannerImg">
+            <div class="overlay">
+
+                <div class="textBox textbox4">
+                    <h1>4 Silence is enough</h1>
+                    <span></span>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et eligendi veniam cum fugiat vel
+                        maxime rem minus eius illum architecto.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div>aaa</div>
+
+    <div id="services" class="  container-fluid  py-5 ">
+
+        <div id="" class=" servicesContainer reveal" style="font-weight: bolder; ">
+          <h1 id="hServices" style="text-align:center; font-weight: bolder;">Our Services</h1>
+  
+          <hr class="hrLineServices z-n1 ">
+  
+  
+          <div id="serviceCarousel" class="services-slider carousel slide my-5" data-bs-ride="carousel"
+            data-bs-pause="false">
+  
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+  
+            <div class="carousel-inner">
+  
+              <div class="carousel-item active " data-bs-pause="false" data-bs-interval="10000">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5  ">
+  
+                  <div class="col">
+  
+                    <div class="card servicesCard card-padding" id="hElectricals">
+                      <img src="img/electrical-design-drawing.jpeg" class="card-img-top  card-Image" alt="...">
+                      <div class="card-body services-card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">Electrical Design and Planning
+                        </h3>
+                        <p class="card-text ">Let our comprehensive electrical design and planning service jumpstart
+                          your
+                          projects. In order to maximize safety, effectiveness, and cost-effectiveness, we specialize in
+                          creating custom solutions.
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+                  <div class="col">
+                    <div class="card servicesCard card-padding ">
+                      <img src="img/electrical-installation-and-maintenance-service.png" class="card-img-top  card-Image"
+                        alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">Installation and Maintenance Electricals
+                        </h3>
+                        <p class="card-text">Experience seamless electrical solutions with our Electrical Installation
+                          and
+                          Management service. From safety-focused installations to efficient project management, we
+                          power
+                          your
+                          success.
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+                  <div class="col" id="hNetworking">
+                    <div class="card servicesCard card-padding">
+                      <img src="img/Cable-Technician.jpg" class="card-img-top card-Image" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">Networking and Cabling
+                        </h3>
+                        <p class="card-text">Unlock seamless connectivity with our Networking and Cabling expertise.
+                          <br>
+                          <br>
+                          We specialize in designing and deploying reliable networks, tailored to your unique
+                          requirements,
+                          to
+                          ensure your success.
+  
+  
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+  
+  
+                </div>
+              </div>
+  
+              <div class="carousel-item " data-bs-pause="false" data-bs-interval="10000">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+  
+                  <div class="col">
+  
+                    <div class="card servicesCard card-padding">
+                      <img src="img/ups-solution-services.png" class="card-img-top card-Image" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">UPS Solutions and Services
+                        </h3>
+                        <p class="card-text">Elevate your power reliability with our UPS (Uninterruptible Power Supply)
+                          Solutions and Services. We provide robust, customized UPS systems that safeguard critical
+                          operations
+                          against power disruptions. Our expert team ensures seamless installation and offers
+                          comprehensive
+                          maintenance to keep your systems running flawlessly.
+  
+  
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+                  <div class="col" id="hDataCenter">
+                    <div class="card servicesCard card-padding">
+                      <img src="img/data-center.png" class="card-img-top  card-Image" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">Data Center Infrastructure Solutions
+                        </h3>
+                        <p class="card-text">We create solutions that enhance the efficiency of an IT environment. We
+                          help
+                          your
+                          organization expand faster by providing the finest data center infrastructure. Raised floor,
+                          Electric
+                          work, Fire suppression system, Water leak detection, and Etc.
+  
+  
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+                  <div class="col">
+                    <div class="card servicesCard card-padding">
+                      <img src="img/it-facility-management.jpg" class="card-img-top card-Image" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">IT Facility Management Services
+                        </h3>
+                        <p class="card-text">We provide facilities management services to monitor and safeguard your
+                          networks,
+                          systems, and applications. This allows you to concentrate on your primary business while we
+                          work
+                          on
+                          improving your IT infrastructure. Our IT facilities management services aid in productivity
+                          and
+                          efficiency.
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+  
+              <div class="carousel-item " data-bs-pause="false" data-bs-interval="10000">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+  
+                  <div class="col" id="hSecurity">
+  
+                    <div class="card servicesCard card-padding">
+                      <img src="img/fingerprint-access-control-system.jpg" class="card-img-top card-Image" alt="...">
+                      <div class="card-body ">
+                        <h3 class="card-title" style="font-weight: bolder;">Security and Access Control Systems
+                        </h3>
+                        <p class="card-text">Access control is a data security process that enables organizations to
+                          manage
+                          who is authorized to access corporate data and resources. Secure access control uses policies
+                          that
+                          verify users are who they claim to be and ensures appropriate control access levels are
+                          granted
+                          to
+                          users.
+  
+  
+  
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+                  <div class="col">
+                    <div class="card servicesCard card-padding">
+                      <img src="img/fire-safety.jpg" class="card-img-top  card-Image" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title" style="font-weight: bolder;">Fire Safety Solutions
+                        </h3>
+                        <p class="card-text">We provide Fire safety solutions is the set of tools to reduce destruction
+                          caused
+                          by fire, like fire-alarms, fire-alert-system, Fire sensors, Safety Cylinders, etc. Fire safety
+                          measures include those that are intended to prevent the ignition of an uncontrolled fire and
+                          those
+                          that are used to limit the spread and impact of a fire.
+                        </p>
+                      </div>
+                    </div>
+  
+                  </div>
+  
+  
+                </div>
+              </div>
+  
+            </div>
+  
+            <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#serviceCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+
+      
+
+      
+    <div>aaa</div>
+    <div>aaa
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI?si=IYIDr31UWC5sNOl3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI?si=IYIDr31UWC5sNOl3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI?si=IYIDr31UWC5sNOl3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI?si=IYIDr31UWC5sNOl3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI?si=IYIDr31UWC5sNOl3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div>aaa</div>
+
+    <script>
+
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+        });
+
+    </script>
+
+</body>
+
+</html>
